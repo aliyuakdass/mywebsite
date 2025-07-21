@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Out-of-School Children Portal - Yobe State</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0d6efd;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    select, input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+    }
+    button {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Out-of-School Children Portal</h1>
+  <h3>AGILE Yobe State - Nigeria</h3>
+</header>
+
+<main>
+  <form>
+    <label for="childName">Child's Full Name</label>
+    <input type="text" id="childName" name="childName" required>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" required>
+
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender">
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+
+    <label for="lga">Local Government Area (LGA)</label>
+    <select id="lga" name="lga" onchange="populateSchools()">
+      <option value="">-- Select LGA --</option>
+      <option value="damaturu">Damaturu</option>
+      <option value="potiskum">Potiskum</option>
+      <option value="nguru">Nguru</option>
+      <option value="geidam">Geidam</option>
+      <option value="gashua">Gashua</option>
+      <option value="guyuk">Gujba</option>
+      <option value="gulani">Gulani</option>
+      <option value="jakusko">Jakusko</option>
+      <option value="karasuwa">Karasuwa</option>
+      <option value="machina">Machina</option>
+      <option value="fika">Fika</option>
+      <option value="fune">Fune</option>
+      <option value="tarmuwa">Tarmuwa</option>
+      <option value="yunusari">Yunusari</option>
+      <option value="yusufari">Yusufari</option>
+      <option value="bursari">Bursari</option>
+      <option value="nangere">Nangere</option>
+    </select>
+
+    <label for="school">Schools</label>
+    <select id="school" name="school">
+      <option value="">-- Select School --</option>
+    </select>
+
+    <label for="reason">Reason for Dropping Out (Optional)</label>
+    <textarea id="reason" name="reason" rows="3"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</main>
+
+<script>
+  const schools = {
+    damaturu: ["Damaturu Primary School", "Government Day Sec. School", "Unity School Damaturu", "Government Girls College"],
+    potiskum: ["GDSS Potiskum", "Muhammad Goni School", "Potiskum Science College"],
+    nguru: ["Nguru Central School", "GDSS Nguru", "Nagari College"],
+    geidam: ["Government Science School", "Geidam Primary School", "GDSS Geidam"],
+    gashua: ["Gashua Community School", "Al-Huda School", "GDSS Gashua"],
+    guyuk: ["Gujba Central School", "GDSS Buni-Yadi", "Unity Primary Gujba"],
+    gulani: ["Gulani Model School", "Primary School Bumsa", "GDSS Bara"],
+    jakusko: ["Jakusko Primary School", "GDSS Jakusko", "Al-Bayan School"],
+    karasuwa: ["Karasuwa Academy", "Karasuwa Central", "Primary School Karasuwa"],
+    machina: ["Machina Model School", "Primary School Machina", "GDSS Machina"],
+    fika: ["Fika Day School", "Fika Town School", "Government Science School Fika"],
+    fune: ["Fune Central School", "Government Day School Fune", "Unity Primary Fune"],
+    tarmuwa: ["GDSS Babangida", "Tarmuwa Primary School", "Central School Tarmuwa"],
+    yunusari: ["Yunusari Model School", "Primary School Kanamma", "GDSS Yunusari"],
+    yusufari: ["Yusufari Primary School", "GDSS Yusufari", "Al-Hikmah School"],
+    bursari: ["Dapchi Primary School", "GDSS Dapchi", "Bursari Model School"],
+    nangere: ["Sabon Gari School", "GDSS Nangere", "Unity College Nangere"]
+  };
+
+  function populateSchools() {
+    const lga = document.getElementById("lga").value;
+    const schoolSelect = document.getElementById("school");
+
+    schoolSelect.innerHTML = "<option value=''>-- Select School --</option>";
+
+    if (schools[lga]) {
+      schools[lga].forEach(school => {
+        const option = document.createElement("option");
+        option.value = school;
+        option.textContent = school;
+        schoolSelect.appendChild(option);
+      });
+    }
+  }
+</script>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Haidar Tech</p>
+    <p>Email: aliyuakdass8@gmail.com</p>
+    <p>Phone: +234-814-881-9994</p>
+    <p>Address: Behind Unity BanK, Damaturu Yobe State</p>
+  </section>
+
+   </footer>
+
+</body>
+</html>
+
+</body>
+</html>
